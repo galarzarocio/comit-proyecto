@@ -1,0 +1,1 @@
+INSERT INTO PERSONA (nombre) VALUES ('Rocio');
