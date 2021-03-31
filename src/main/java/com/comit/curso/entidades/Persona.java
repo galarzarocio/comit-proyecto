@@ -25,27 +25,5 @@ public abstract class Persona implements Serializable{
 	
 	 private String nombre;
 	 private String apellido;
-<<<<<<< HEAD
-	 private String mail;
-	 
-	 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
-=======
->>>>>>> branch 'main' of git@github.com:galarzarocio/comit-proyecto.git
 }
 	
