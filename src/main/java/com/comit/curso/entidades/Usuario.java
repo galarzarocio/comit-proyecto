@@ -1,32 +1,20 @@
 package com.comit.curso.entidades;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+import lombok.Data;
+
+@Data
+@Entity
+@DiscriminatorValue("USUARIO")
 public class Usuario extends Persona {
 
 	
 	private static final long serialVersionUID = 1L;
  
-	private String nmbre;
-	private String apellido;
-	private long contrasenia;
+	private Long contrasenia;
 	private String mail;
-
-
-	public String getNmbre() {
-		return nmbre;
-	}
-	public void setNmbre(String nmbre) {
-		this.nmbre = nmbre;
-	}
-	public long getContrasenia() {
-		return contrasenia;
-	}
-	public void setContrasenia(long contrasenia) {
-		this.contrasenia = contrasenia;
-	}
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+	
+	
 }
