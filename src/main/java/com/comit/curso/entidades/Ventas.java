@@ -1,5 +1,11 @@
 package com.comit.curso.entidades;
 
-public class Ventas {
+import java.io.Serializable;
+
+public class Ventas implements Serializable {
+	
+	
+	public int fechaDeEntrega;
+    public int totalPagar;
 
 }

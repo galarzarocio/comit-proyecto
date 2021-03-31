@@ -27,6 +27,8 @@ public class Persona implements Serializable{
 	
 	 private String nombre;
 	 private String apellido;
+	 private String mail;
+	 
 	 
 	public String getNombre() {
 		return nombre;
