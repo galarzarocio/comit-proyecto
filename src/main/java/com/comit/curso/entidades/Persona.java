@@ -8,16 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "Persona")
-public class Persona implements Serializable{
+public abstract class Persona implements Serializable{
   
 	private static final long serialVersionUID = 1L;
 	
@@ -27,6 +25,7 @@ public class Persona implements Serializable{
 	
 	 private String nombre;
 	 private String apellido;
+<<<<<<< HEAD
 	 private String mail;
 	 
 	 
@@ -46,5 +45,7 @@ public class Persona implements Serializable{
 		this.apellido = apellido;
 	}
 	
+=======
+>>>>>>> branch 'main' of git@github.com:galarzarocio/comit-proyecto.git
 }
 	
