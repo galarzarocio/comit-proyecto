@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-import lombok.Data;
 
-@Data
+
+
 @Entity
 @DiscriminatorValue("USUARIO")
 public class Usuario extends Persona implements Serializable {

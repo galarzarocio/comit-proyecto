@@ -5,7 +5,6 @@ package com.comit.curso.entidades;
 
 import javax.persistence.Id;
 
-import lombok.Data;
 
 import java.io.Serializable;
 
@@ -16,7 +15,7 @@ import javax.persistence.Entity;
 
 
 
-@Data
+
 @Entity
 @DiscriminatorValue("CLIENTE")
 public class Cliente extends Persona implements Serializable {

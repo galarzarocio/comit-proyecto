@@ -2,6 +2,8 @@ package com.comit.curso.entidades;
 
 import java.io.Serializable;
 
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "Persona")
-public abstract class Persona implements Serializable{
+@DiscriminatorValue("PERSONA")
+public class Persona implements Serializable{
   
 	private static final long serialVersionUID = 1L;
 	
