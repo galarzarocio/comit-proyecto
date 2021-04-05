@@ -2,7 +2,7 @@ package com.comit.curso.entidades;
 
 import java.io.Serializable;
 
-import lombok.Data;
+
 
 public class Producto implements Serializable {
 

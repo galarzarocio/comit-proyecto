@@ -1,8 +1,12 @@
 package com.comit.curso.entidades;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 
 import javax.persistence.Id;
+
+
 
 
 
@@ -15,21 +19,9 @@ public class Pedido implements Serializable {
 	@Id
 	private String nombre;
 	
-	private Data fechaDeEntrega;
+	private Date fechaDeEntrega;
     private int totalPagar;
-    
-    
-	public int getFechaDeEntrega() {
-		return fechaDeEntrega;
-	}
-	public void setFechaDeEntrega(int fechaDeEntrega) {
-		this.fechaDeEntrega = fechaDeEntrega;
-	}
-	public int getTotalPagar() {
-		return totalPagar;
-	}
-	public void setTotalPagar(int totalPagar) {
-		this.totalPagar = totalPagar;
-	}
+   
+	
 
 }
