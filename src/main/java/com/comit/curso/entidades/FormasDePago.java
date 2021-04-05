@@ -12,6 +12,13 @@ public class FormasDePago implements Serializable {
      private String formaDePagoTransferencia;
      private String formaDePagoMercadoPago;
      
+     int cantidadDePagos;
+     int fechaDePagos;
+     int pagosRealizados;
+     
+     
+    
+     
      
      
      
