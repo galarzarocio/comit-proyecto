@@ -8,7 +8,7 @@ public class Producto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-@Data	
+	
 	private int diasDeRealizacion = 14;
 	private String descripcion;
 	private int precio;

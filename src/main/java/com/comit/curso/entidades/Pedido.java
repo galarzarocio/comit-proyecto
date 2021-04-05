@@ -15,7 +15,7 @@ public class Pedido implements Serializable {
 	@Id
 	private String nombre;
 	
-	private int fechaDeEntrega;
+	private Data fechaDeEntrega;
     private int totalPagar;
     
     

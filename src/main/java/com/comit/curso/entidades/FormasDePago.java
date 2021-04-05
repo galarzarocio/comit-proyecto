@@ -1,6 +1,7 @@
 package com.comit.curso.entidades;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 
 public class FormasDePago implements Serializable {
@@ -13,8 +14,14 @@ public class FormasDePago implements Serializable {
      private String formaDePagoMercadoPago;
      
      int cantidadDePagos;
-     int fechaDePagos;
+     Date fechaDePagos;
      int pagosRealizados;
+
+ 	private Double monto;
+ 	private Date fecha;
+ 	private boolean aceptada = false;
+ 	
+ 
      
      
     
