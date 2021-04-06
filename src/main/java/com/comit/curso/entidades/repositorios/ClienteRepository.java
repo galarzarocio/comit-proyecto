@@ -11,4 +11,6 @@ import com.comit.curso.entidades.Cliente;
 @Transactional
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
+	
+
 }
