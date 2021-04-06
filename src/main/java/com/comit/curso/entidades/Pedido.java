@@ -3,25 +3,66 @@ package com.comit.curso.entidades;
 import java.io.Serializable;
 import java.sql.Date;
 
-
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-
-
-
+import javax.persistence.ManyToOne;
 
 public class Pedido implements Serializable {
-	
-
-
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	private String nombre;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@ManyToOne
+	private Cliente cliente;
+
 	private Date fechaDeEntrega;
-    private int totalPagar;
-   
-	
+	private Integer totalPagar;
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
+	public Pedido() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Date getFechaDeEntrega() {
+		return fechaDeEntrega;
+	}
+
+	public void setFechaDeEntrega(Date fechaDeEntrega) {
+		this.fechaDeEntrega = fechaDeEntrega;
+	}
+
+	public Integer getTotalPagar() {
+		return totalPagar;
+	}
+
+	public void setTotalPagar(Integer totalPagar) {
+		this.totalPagar = totalPagar;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public Long getId() {
+		return id;
+	}
 
 }

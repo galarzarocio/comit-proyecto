@@ -1,1 +1,1 @@
-INSERT INTO PERSONA (nombre) VALUES ('Rocio');
+INSERT INTO PERSONA (DTYPE, nombre) VALUES ('CLIENTE','Rocio');

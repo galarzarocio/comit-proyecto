@@ -1,18 +1,21 @@
-package com.comit.curso.entidades
+package com.comit.curso.entidades;
 
-import java.io.Serializable;
+public enum Estado {
 
-public class Estado implements Serializable{
-   private static final long serialVersionUID = 1L;
-   
-   
-	 private int pago50Porciento;
-     private String pagoTotal;
-     private String enPreparacion;
-     private String conRetraso;
-     private String enviado;
-     private String entregado;
- 
-     Estado = new estado("enPreparacion");
- 
+	PAGO_50_PORC("pago50Porciento"), PAGO_TOTAL("pagoTotal"), EN_PREPARACION("enPreparacion"),
+	CON_RETRASE("conRetraso"), ENVIADO("enviado"), ENTREGADO("entregado");
+
+	private String descripcion;
+
+	Estado(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 }
