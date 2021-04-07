@@ -17,15 +17,13 @@ public class Cliente extends Persona implements Serializable {
 	private Long dni;
 	private Long telefono;
 
-	
-
-
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Cliente(String apellido, String nombre, long dni2) {
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public String getDireccion() {
 		return direccion;

@@ -3,6 +3,7 @@ package com.comit.curso.entidades;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,7 +23,7 @@ public class Pedido implements Serializable {
 
 	@ManyToOne
 	private Cliente cliente;
-
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaDeEntrega;
 	private Integer totalPagar;
 	@Enumerated(EnumType.STRING)

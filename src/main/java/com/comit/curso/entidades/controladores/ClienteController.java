@@ -1,11 +1,6 @@
 package com.comit.curso.entidades.controladores;
 
-
-
-import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.comit.curso.entidades.Cliente;
 import com.comit.curso.entidades.repositorios.ClienteRepository;
-
-
-
-
+import com.comit.curso.entidades.repositorios.PedidoRepository;
 
 @Controller
 @RequestMapping(value = "/clientes")
@@ -30,6 +22,8 @@ public class ClienteController {
 	@Autowired
 	ClienteRepository repo;
 	private String localidad;
+	
+	
 
 	@GetMapping(value = "")
 	public String listarClientes(Model model) {
@@ -37,30 +31,26 @@ public class ClienteController {
 		model.addAttribute("clientes", repo.findAll());
 		return "listado";
 
-	}	
-	
+	}
+
 	@RequestMapping(value = "/save", method = { RequestMethod.POST, RequestMethod.PUT })
 	public String save(@RequestParam(value = "nombre") String nombre, @RequestParam(value = "apellido") String apellido,
-			@RequestParam(value = "dni") long dni,
-			Model model) throws ParseException {
-
-		
+			@RequestParam(value = "dni") long dni, Model model) throws ParseException {
 
 		Cliente cliente = new Cliente(apellido, nombre, dni);
-		cliente.setDni(ClienteRepository.());
-		Cliente cliente2 = ClienteRepository.save(cliente);
+		repo.saveAndFlush(cliente);
+
 		model.addAttribute("cliente", cliente);
 		return "redirect:/listado";
-		
+
 	}
-	
+
 	@RequestMapping(value = "/edit/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
 	public String edit(@PathVariable(value = "id") Integer id, @RequestParam(value = "nombre") String nombre,
-			@RequestParam(value = "apellido") String apellido, @RequestParam(value = "dni") long dni,
-			 Model model) throws ParseException {
+			@RequestParam(value = "apellido") String apellido, @RequestParam(value = "dni") long dni, Model model)
+			throws ParseException {
 
-	
-		Cliente cliente = ClienteRepository.class;
+		Cliente cliente = new Cliente();
 		cliente.setApellido(apellido);
 		cliente.setNombre(nombre);
 		cliente.setDni(dni);
@@ -70,7 +60,7 @@ public class ClienteController {
 		String provincia = null;
 		cliente.setProvincia(provincia);
 		cliente.setTelefono(null);
-		
+
 		return "redirect:/listado";
 	}
 	
