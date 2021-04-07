@@ -3,6 +3,7 @@ package com.comit.curso.entidades.controladores;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ import com.comit.curso.entidades.Estado;
 import com.comit.curso.entidades.Pedido;
 import com.comit.curso.entidades.repositorios.ClienteRepository;
 import com.comit.curso.entidades.repositorios.PedidoRepository;
-import com.pmfernan.dtos.PersonaDto;
+
 
 
 @Controller
@@ -40,14 +41,15 @@ public class PedidoController {
 
 	}
 	@RequestMapping(value = "/pedidos", method = { RequestMethod.POST, RequestMethod.PUT })
-	public String pedido(@PathVariable(value = "cliente") Cliente cliente, @RequestParam(value = "fechaDeEntrega") String fechaDeEntrega,
+	public String pedido(@RequestParam(value = "id") Long id, @RequestParam(value = "fechaDeEntrega") String fechaDeEntrega,
 			@PathVariable(value = "estado") Estado estado, Model model) throws ParseException {
 
 		Date fecha = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(fechaDeEntrega);
+		
+		Cliente cli = ClienteRepository.findById(id);
+		
+		return "redirect:/listado";
 
-	Cliente cli =ClienteRepository.findById(id);
-		
-		
 	}
 
 }
