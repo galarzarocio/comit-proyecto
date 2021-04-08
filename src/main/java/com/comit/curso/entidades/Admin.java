@@ -13,7 +13,7 @@ public class Admin extends Usuario {
 	}
 
 	private String mail;
-	private Long contrasenia;
+	private Long contraseña;
 
 	public String getMail() {
 		return mail;
@@ -23,12 +23,17 @@ public class Admin extends Usuario {
 		this.mail = mail;
 	}
 
-	public Long getContrasenia() {
-		return contrasenia;
+	public Long getContraseña() {
+		return contraseña;
 	}
 
-	public void setContrasenia(Long contrasenia) {
-		this.contrasenia = contrasenia;
+	public void setContraseña(Long contrasenia) {
+		this.contraseña = contrasenia;
+	}
+
+	public void setContraseña(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

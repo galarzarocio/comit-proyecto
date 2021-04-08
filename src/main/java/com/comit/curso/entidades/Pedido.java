@@ -33,9 +33,7 @@ public class Pedido implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
+	
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;

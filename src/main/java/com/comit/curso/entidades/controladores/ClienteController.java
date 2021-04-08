@@ -26,8 +26,6 @@ public class ClienteController {
 	ClienteRepository repo;
 	private String localidad;
 	
-	
-
 	@GetMapping(value = "")
 	public String listarClientes(Model model) {
 
