@@ -35,17 +35,14 @@ public class Pedido implements Serializable {
 
 	
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+	
 
 	public Date getFechaDeEntrega() {
 		return fechaDeEntrega;
 	}
 
-	public void setFechaDeEntrega(Date fechaDeEntrega) {
-		this.fechaDeEntrega = fechaDeEntrega;
-	}
+
+
 
 	public Integer getTotalPagar() {
 		return totalPagar;
@@ -59,12 +56,30 @@ public class Pedido implements Serializable {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
+
 
 	public Long getId() {
 		return id;
 	}
+
+
+
+	public void setCliente(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	public void setFechaDeEntrega(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
 
 }

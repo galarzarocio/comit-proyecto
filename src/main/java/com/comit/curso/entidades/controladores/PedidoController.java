@@ -1,24 +1,22 @@
 package com.comit.curso.entidades.controladores;
 
-import java.sql.Date;
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.comit.curso.entidades.Cliente;
-import com.comit.curso.entidades.Estado;
+
 import com.comit.curso.entidades.Pedido;
-import com.comit.curso.entidades.Producto;
+
 import com.comit.curso.entidades.repositorios.ClienteRepository;
 import com.comit.curso.entidades.repositorios.PedidoRepository;
 import com.comit.curso.entidades.repositorios.ProductoRepository;
@@ -52,25 +50,35 @@ public class PedidoController {
 
 	
 	}
+	@RequestMapping("/crear")
+	public String crear(Model model) {
+		Pedido pedido = new Pedido();
+		pedido.setCliente(new String());
+		pedido.setTotalPagar(null);
+		
+		model.addAttribute("pedido", pedido);
+
+		return "crear";
+		
+		
+	}
 	
 
 	@RequestMapping(value = "/pedido/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
-	public String pedido(@PathVariable(value = "id") Long id, @PathVariable(value = "estado") Estado estado,
-			@PathVariable(value = "cliente") Cliente cliente, @PathVariable(value = "producto") Producto producto,
+	public String pedido(@PathVariable(value = "id") Long id, @PathVariable(value = "estado") String estado,
+			@PathVariable(value = "cliente") String cliente, @PathVariable(value = "producto") String producto,
 			Model model) throws ParseException {
 
 		Cliente cli2 = clienteRepo.findById(id).get();
 		if (cli2 == null)
 			return "redirect:/error";
 
-		producto.setDiasDeRealizacion(20);
-		producto.setMarcasSoldaduras(true);
-		producto.setPrecio(20000);
-		producto.setRetenzor(true);
-		producto.setTipoMaterial(null);
-
-		productoRepo.save(producto);
-
+		Pedido pedido = new Pedido();
+	   
+		pedido.setFechaDeEntrega(null);
+		pedido.setTotalPagar(null);
+		repo.save(pedido);
+		model.addAttribute("pedido", pedido);
 		return "redirect:/listado";
 	
 	}
