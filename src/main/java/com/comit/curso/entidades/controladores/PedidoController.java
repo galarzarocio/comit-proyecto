@@ -3,9 +3,10 @@ package com.comit.curso.entidades.controladores;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,8 +38,14 @@ public class PedidoController {
 
 @Autowired
  ProductoRepository productoRepo;
-	
 
+private final Cliente cli;
+
+private Date fecha;
+
+private Optional<Cliente> cli2;
+
+ 
 	
 	
 	
@@ -54,13 +61,11 @@ public class PedidoController {
 	
 
 	@RequestMapping(value = "/pedido/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
-	public String pedido(@PathVariable(value = "id") Long id, @RequestParam(value = "fechaDeEntrega") String fechaDeEntrega,
-			@PathVariable(value = "estado") Estado estado, @PathVariable(value = "cliente") Cliente cliente, @PathVariable(value = "producto") Producto producto, Model model)  {
+	public String pedido(@PathVariable(value = "id") Long id,@PathVariable(value = "estado") Estado estado, @PathVariable(value = "cliente") Cliente cliente, @PathVariable(value = "producto") Producto producto, Model model)  throws ParseException {
 
-		Date fecha = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(fechaDeEntrega);
-
-		Cliente cli = ClienteRepository.findById(id).get();
-		producto.setDescripcion(fechaDeEntrega);
+	
+		cli2 = clienteRepo.findById(id);
+	
 		producto.setDiasDeRealizacion(20);
 		producto.setMarcasSoldaduras(true);
 		producto.setPrecio(20000);
@@ -75,7 +80,7 @@ public class PedidoController {
 	
 	
 	
-	
+
 	
 	
 	
