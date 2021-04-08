@@ -1,8 +1,6 @@
 package com.comit.curso.entidades.controladores;
 
-
 import java.text.ParseException;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.comit.curso.entidades.Cliente;
-
 import com.comit.curso.entidades.repositorios.ClienteRepository;
-
 
 @Controller
 @RequestMapping(value = "/clientes")
@@ -25,7 +21,7 @@ public class ClienteController {
 	@Autowired
 	ClienteRepository repo;
 	private String localidad;
-	
+
 	@GetMapping(value = "")
 	public String listarClientes(Model model) {
 
@@ -48,7 +44,7 @@ public class ClienteController {
 
 	@RequestMapping(value = "/edit/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
 	public String edit(@PathVariable(value = "id") Integer id, @RequestParam(value = "nombre") String nombre,
-			@RequestParam(value = "apellido") String apellido, @RequestParam(value = "dni") long dni, Model model)
+			@RequestParam(value = "apellido") String apellido, @RequestParam(value = "dni") Long dni, Model model)
 			throws ParseException {
 
 		Cliente cliente = new Cliente();
@@ -62,8 +58,10 @@ public class ClienteController {
 		cliente.setProvincia(provincia);
 		cliente.setTelefono(null);
 
+		repo.save(cliente);
+
 		return "redirect:/listado";
-		
+
 	}
-	
+
 }

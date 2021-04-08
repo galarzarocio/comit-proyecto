@@ -1,12 +1,9 @@
 package com.comit.curso.entidades.repositorios;
 
-
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 
 import com.comit.curso.entidades.Pedido;
 
@@ -14,7 +11,4 @@ import com.comit.curso.entidades.Pedido;
 @Transactional
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
-  findById(Long id);
-	
-	
 }
