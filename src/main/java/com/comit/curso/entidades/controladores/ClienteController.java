@@ -1,6 +1,8 @@
 package com.comit.curso.entidades.controladores;
 
+
 import java.text.ParseException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.comit.curso.entidades.Cliente;
+
 import com.comit.curso.entidades.repositorios.ClienteRepository;
-import com.comit.curso.entidades.repositorios.PedidoRepository;
+
 
 @Controller
 @RequestMapping(value = "/clientes")
@@ -62,7 +65,7 @@ public class ClienteController {
 		cliente.setTelefono(null);
 
 		return "redirect:/listado";
+		
 	}
 	
-
 }

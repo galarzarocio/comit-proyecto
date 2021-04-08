@@ -28,7 +28,7 @@ public class PedidoController {
 	
 @Autowired
 	PedidoRepository repo;
-	private Date fechaDeEntrega;
+	
 	private Model addAttribute;
 	
 	
@@ -40,15 +40,16 @@ public class PedidoController {
 		return "listado";
 
 	}
-	@RequestMapping(value = "/pedidos", method = { RequestMethod.POST, RequestMethod.PUT })
-	public String pedido(@RequestParam(value = "id") Long id, @RequestParam(value = "fechaDeEntrega") String fechaDeEntrega,
+	@RequestMapping(value = "/pedidos/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
+	public String pedido(@PathVariable(value = "id") Long id, @RequestParam(value = "fechaDeEntrega") String fechaDeEntrega,
 			@PathVariable(value = "estado") Estado estado, Model model) throws ParseException {
 
 		Date fecha = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(fechaDeEntrega);
 		
-		Cliente cli = ClienteRepository.findById(id);
+		Cliente cli = ClienteRepository.findById(id).get();
+		model.addAttribute("pedido", repo);
 		
-		return "redirect:/listado";
+	  return "/listado";
 
 	}
 
