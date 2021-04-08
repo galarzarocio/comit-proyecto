@@ -37,9 +37,6 @@ public class Producto implements Serializable {
 	}
 
 
-	public void setDiasDeRealizacion(int diasDeRealizacion) {
-		this.diasDeRealizacion = diasDeRealizacion;
-	}
 
 
 	public String getDescripcion() {

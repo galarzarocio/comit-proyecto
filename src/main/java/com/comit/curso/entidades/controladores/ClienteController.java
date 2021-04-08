@@ -2,6 +2,7 @@ package com.comit.curso.entidades.controladores;
 
 import java.text.ParseException;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.comit.curso.entidades.Cliente;
 import com.comit.curso.entidades.repositorios.ClienteRepository;
 
+
 @Controller
 @RequestMapping(value = "/clientes")
 public class ClienteController {
@@ -21,6 +23,25 @@ public class ClienteController {
 	@Autowired
 	ClienteRepository repo;
 	private String localidad;
+	
+	
+
+	@GetMapping("/")
+	public String getIndex() {
+		return "index";
+	}
+
+	@RequestMapping("/about")
+	public String about() {
+		return "about";
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	@GetMapping(value = "")
 	public String listarClientes(Model model) {
@@ -62,6 +83,14 @@ public class ClienteController {
 
 		return "redirect:/listado";
 
+	}
+	@RequestMapping("/alta")
+	public String alta(Model model) {
+		Cliente cliente = new Cliente();
+		cliente.setApellido(new String());
+		model.addAttribute("cliente", cliente);
+
+		return "alta";
 	}
 
 }
