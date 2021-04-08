@@ -45,6 +45,8 @@ private Date fecha;
 
 private Optional<Cliente> cli2;
 
+private Date fecha2;
+
  
 	
 	
@@ -61,11 +63,14 @@ private Optional<Cliente> cli2;
 	
 
 	@RequestMapping(value = "/pedido/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
-	public String pedido(@PathVariable(value = "id") Long id,@PathVariable(value = "estado") Estado estado, @PathVariable(value = "cliente") Cliente cliente, @PathVariable(value = "producto") Producto producto, Model model)  throws ParseException {
+	public String pedido(@PathVariable(value = "id") Long id,@PathVariable(value = "fechaDeEntrega")String fechaDeEntrega,
+			@PathVariable(value = "estado") Estado estado, @PathVariable(value = "cliente") Cliente cliente,
+			@PathVariable(value = "producto") Producto producto, Model model)  throws ParseException {
 
-	
+		fecha2 = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(fechaDeEntrega);
+
 		cli2 = clienteRepo.findById(id);
-	
+	    producto.setDescripcion(fechaDeEntrega);
 		producto.setDiasDeRealizacion(20);
 		producto.setMarcasSoldaduras(true);
 		producto.setPrecio(20000);
