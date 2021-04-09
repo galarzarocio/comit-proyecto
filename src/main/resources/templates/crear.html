@@ -13,11 +13,10 @@
   <body>
  		
 <!--  		para poner la cabecera de botones -->
- 		<div th:insert="botones.html :: botones"> </div>	
+ 		<div th:insert="botones.html :: botones"></div>	
  		
  		
- 		
-		<h1>Agregar un nuevo cliente</h1>
+		<h1>Agregar un nuevo Admin</h1>
 		<div class="container">
 			<form th:action="@{/admin/guardar}" method="post" class="form-group" th:object=${administrador}>
 				<div class="form-group">

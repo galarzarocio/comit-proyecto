@@ -43,7 +43,7 @@ public class ClienteController {
 	
 	
 
-	@GetMapping(value = "")
+	@GetMapping(value = "listado")
 	public String listarClientes(Model model) {
 
 		model.addAttribute("clientes", repo.findAll());
@@ -51,7 +51,7 @@ public class ClienteController {
 
 	}
 
-	@RequestMapping(value = "/save", method = { RequestMethod.POST, RequestMethod.PUT })
+	@RequestMapping(value = "/guardar", method = { RequestMethod.POST, RequestMethod.PUT })
 	public String save(@RequestParam(value = "nombre") String nombre, @RequestParam(value = "apellido") String apellido,
 			@RequestParam(value = "dni") long dni, Model model) throws ParseException {
 

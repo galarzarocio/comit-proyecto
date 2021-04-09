@@ -25,7 +25,7 @@ import com.comit.curso.entidades.repositorios.ProductoRepository;
 
 
 @Controller
-@RequestMapping(value = "/pedidos")
+@RequestMapping(value = "/pedido")
 public class PedidoController {
 
 	@Autowired
@@ -41,7 +41,7 @@ public class PedidoController {
 	
 	
 	
-	@GetMapping(value = "")
+	@GetMapping(value = "/listado")
 	public String listarPedidos(Model model) {
 
 		model.addAttribute("pedidos", repo.findAll());
@@ -55,7 +55,6 @@ public class PedidoController {
 		Pedido pedido = new Pedido();
 		pedido.setCliente(new String());
 		pedido.setTotalPagar(null);
-		
 		model.addAttribute("pedido", pedido);
 
 		return "crear";
@@ -64,7 +63,7 @@ public class PedidoController {
 	}
 	
 
-	@RequestMapping(value = "/pedido/{id}", method = { RequestMethod.POST, RequestMethod.PUT })
+	@RequestMapping(value = "/guardar", method = { RequestMethod.POST, RequestMethod.PUT })
 	public String pedido(@PathVariable(value = "id") Long id, @PathVariable(value = "estado") String estado,
 			@PathVariable(value = "cliente") String cliente, @PathVariable(value = "producto") String producto,
 			Model model) throws ParseException {
@@ -77,9 +76,9 @@ public class PedidoController {
 	   
 		pedido.setFechaDeEntrega(null);
 		pedido.setTotalPagar(null);
+		model.addAttribute("pedidos", pedido);
 		repo.save(pedido);
-		model.addAttribute("pedido", pedido);
-		return "redirect:/listado";
+		return "redirect:/pedido/listado";
 	
 	}
 	
