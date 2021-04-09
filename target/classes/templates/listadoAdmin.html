@@ -15,16 +15,29 @@
 <title>Hello, world!</title>
 </head>
 <body>
-<<<<<<< HEAD
 
-=======
-	<!-- 		<header th:insert="fragments/navbar.html :: header"> </header>	 -->
->>>>>>> branch 'main' of git@github.com:galarzarocio/comit-proyecto.git
+ 		<div th:insert="botones.html :: botones"> </div>	
 
-	<div class="container">
-		<div class="alert alert-danger" role="alert">Error al procesar
-			la llamada</div>
-	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">email</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="persona, iter : ${administradores}">
+				<th scope="row" th:text="${iter.index + 1}" />
+				<td th:text="${persona.mail}" />
+				<td>Poner un boton de edicion </td>
+				<td>Poner un boton de borrado </td>
+			</tr>
+		</tbody>
+	</table>
+
+
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

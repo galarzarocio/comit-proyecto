@@ -11,13 +11,11 @@
     <title>SOSmascotas</title>
   </head>
   <body>
-	
+
 		<h1>pedido</h1>
 		<div class="container">
 			<form th:action="@{/pedido/guardarPedido}" method="post" class="form-group" th:object=${pedido}>
-				
-			      
-			    
+
 			    <div>
 					<label for="estado">Estado</label>
 					<select name="estado" th:field="*{estado}">
